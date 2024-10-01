@@ -26,7 +26,7 @@ async def get_a_devices_status(product_id: str,device_id:str):
             request_payload = json.dumps(request_data)
             # publishing the message
             client.publish(f"onwords/{product_id}/getCurrentStatus", payload=request_payload, qos=1)
-
+            print('working ----- on connect working')
         def on_message(client, userdata, msg):
             try:
                 original_bytes = msg.payload.decode('utf-8')
@@ -36,6 +36,7 @@ async def get_a_devices_status(product_id: str,device_id:str):
             except Exception as e:
                 print("Error processing message:", e)
         
+        print('do env working ', mqtt_broker, mqtt_password)
         client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION1,client_id)
         client.on_connect = on_connect
         client.on_message = on_message
