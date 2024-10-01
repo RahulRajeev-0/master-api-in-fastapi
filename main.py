@@ -36,7 +36,7 @@ async def get_a_devices_status(product_id: str,device_id:str):
             except Exception as e:
                 print("Error processing message:", e)
         
-        client = mqtt.Client(client_id)
+        client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION1,client_id)
         client.on_connect = on_connect
         client.on_message = on_message
         client.username_pw_set(username=mqtt_username, password=mqtt_password)
