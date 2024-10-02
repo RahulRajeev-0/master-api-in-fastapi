@@ -11,7 +11,7 @@ client_id = os.getenv('client_id')
 mqtt_broker = os.getenv('mqtt_broker')
 mqtt_port = 1883
 
-app = FastAPI(title="Onwords Master API", description="Only API for accessing all Onword's Devices!", version="1.0.0", docs_url="/", openapi_url="/openapi.json", redoc_url=None, debug=True)
+app = FastAPI(title="Onwords Master API (Test)", description="Only API for accessing all Onword's Devices!, This is test version of master api used for testing", version="1.0.0", docs_url="/", openapi_url="/openapi.json", redoc_url=None, debug=True)
 
 def create_mqtt_client(on_connect, on_message):
     client = mqtt.Client(client_id=f"{client_id}_{uuid.uuid4()}")
